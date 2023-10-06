@@ -26,7 +26,8 @@ public class FilmRepositoryImpl extends BaseRepositoryImpl<Long, Film> implement
     public List<Film> getFilmsProducedByDirector(Director director) {
         return entityManager
                 .createQuery("SELECT film FROM Film film WHERE film.director=:director", Film.class)
-                .setParameter("director", director).getResultList();
+                .setParameter("director", director)
+                .getResultList();
     }
 
     @Override
