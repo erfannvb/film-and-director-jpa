@@ -11,6 +11,7 @@ import nvb.dev.base.entity.BaseEntity;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Film extends BaseEntity<Long> {
 
     private String title;
