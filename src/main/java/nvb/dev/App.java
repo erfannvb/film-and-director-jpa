@@ -24,18 +24,19 @@ public class App {
         DirectorRepository directorRepository = new DirectorRepositoryImpl(entityManager);
         DirectorService directorService = new DirectorServiceImpl(entityManager, directorRepository);
 
-        Director director = new Director("Emma", "Taylor");
-        directorService.register(director);
+        Director wrongDirector = new Director(null, null);
+        directorService.register(wrongDirector);
 
         Film film = Film.builder()
-                .title("Missing")
-                .language("English")
-                .director(director)
-                .rate(9.1f)
-                .length(1).build();
+                .title("xxx")
+                .language("German")
+                .director(wrongDirector)
+                .rate(4.2f)
+                .length(2)
+                .build();
 
         filmService.addFilm(film);
-        System.out.println(film.getTitle());
+
 
     }
 }
